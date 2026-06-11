@@ -3,41 +3,277 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Freelance Day Rate Calculator Pakistan</title>
-<meta name="description" content="Free freelance day rate calculator for Pakistan. Calculate hourly, daily, weekly, and monthly rates in PKR with taxes and expenses." />
+
+<!-- SEO Meta Tags -->
+<title>Freelance Day Rate Calculator Pakistan | Hourly & Daily Rate in PKR</title>
+<meta name="description" content="Free freelance day rate calculator for Pakistan. Calculate your hourly, daily, weekly, and monthly freelance rate in PKR. Add expenses and tax buffer to charge confidently." />
+<meta name="keywords" content="freelance day rate calculator Pakistan, hourly rate calculator PKR, freelancer rate Pakistan, how much to charge freelance Pakistan, daily rate calculator PKR, freelance income calculator Pakistan" />
+<meta name="author" content="Freelance Day Rate Calculator Pakistan" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://shaikh1085.github.io/Freelance-Day-Rate-Calculator-Pakistan/" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Freelance Day Rate Calculator Pakistan | Hourly & Daily Rate in PKR" />
+<meta property="og:description" content="Calculate your hourly, daily, weekly, and monthly freelance rate in PKR. Add expenses and tax to charge confidently." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://shaikh1085.github.io/Freelance-Day-Rate-Calculator-Pakistan/" />
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance Day Rate Calculator Pakistan",
+  "description": "Free freelance day rate calculator for Pakistani freelancers. Calculate hourly, daily, weekly, and monthly rates in PKR with tax and expenses.",
+  "url": "https://shaikh1085.github.io/Freelance-Day-Rate-Calculator-Pakistan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "PKR"
+  }
+}
+</script>
+
 <style>
-:root{--bg:#0b1020;--card:#121a33;--text:#eef2ff;--muted:#a9b4d0;--accent:#7c9cff;--accent2:#35d0ba;--border:#243055}
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#08101f,#0d1530);color:var(--text)}
-.container{max-width:1060px;margin:0 auto;padding:24px}
-.hero{padding:28px 0 14px}
-h1{font-size:clamp(30px,5vw,52px);line-height:1.05;margin:0 0 10px}
-p{color:var(--muted);line-height:1.6}
-.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
-@media(max-width:900px){.grid{grid-template-columns:1fr}}
-.card{background:rgba(18,26,51,.92);border:1px solid var(--border);border-radius:22px;padding:20px;box-shadow:0 12px 30px rgba(0,0,0,.24)}
-label{display:block;font-size:14px;margin:14px 0 8px;color:#d6def7}
-input{width:100%;padding:14px;border-radius:14px;border:1px solid #33426e;background:#0b1228;color:var(--text);outline:none}
-input:focus{border-color:var(--accent)}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:560px){.row{grid-template-columns:1fr}}
-button{width:100%;margin-top:16px;padding:14px 16px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04111f;font-weight:800;font-size:16px;cursor:pointer}
-.results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-@media(max-width:560px){.results{grid-template-columns:1fr}}
-.result{background:#0b1228;border:1px solid var(--border);border-radius:18px;padding:14px}
-.big{font-size:30px;font-weight:800;color:#fff}
-.small{font-size:13px;color:var(--muted)}
-.list{margin:10px 0 0;padding:0;list-style:none}
-.list li{padding:9px 0;border-bottom:1px solid #223055;color:#dfe6ff}
-.list li:last-child{border-bottom:0}
-.footer{padding:22px 0 8px;color:var(--muted);font-size:13px}
-.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-.badge{padding:8px 12px;border-radius:999px;background:#0b1228;border:1px solid var(--border);color:#dfe6ff;font-size:13px}
+  :root {
+    --bg: #07111f;
+    --panel: rgba(15, 26, 48, 0.92);
+    --text: #eef3ff;
+    --muted: #a9b6d6;
+    --accent: #7c9cff;
+    --accent2: #35d0ba;
+    --border: #233255;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 800;
+    margin: 0 0 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 auto 16px;
+  }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .badge {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #0b1228;
+    border: 1px solid var(--border);
+    color: #dfe6ff;
+    font-size: 12px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .badge:hover { border-color: var(--accent); }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  /* Cards */
+  .card {
+    background: var(--panel);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .card h2 {
+    font-size: 18px;
+    margin: 0 0 20px;
+    color: var(--text);
+  }
+
+  /* Inputs */
+  label {
+    display: block;
+    font-size: 12px;
+    margin: 16px 0 6px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #162444;
+    color: white;
+    outline: none;
+    font-size: 15px;
+    transition: border-color 0.2s;
+  }
+  input[type="number"]:focus { border-color: var(--accent); }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 480px) {
+    .row { grid-template-columns: 1fr; }
+  }
+
+  /* Button */
+  .btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 15px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #07111f;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+
+  /* Results */
+  .results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  @media (max-width: 480px) {
+    .results { grid-template-columns: 1fr; }
+  }
+  .result {
+    background: #0b1228;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    transition: border-color 0.2s;
+  }
+  .result:hover { border-color: var(--accent); }
+  .result .small { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .result .big { font-size: 26px; font-weight: 800; color: #fff; margin-top: 4px; }
+  .result.highlight { border-color: var(--accent2); background: rgba(53,208,186,0.07); }
+  .result.highlight .big { color: var(--accent2); }
+
+  /* Steps list */
+  .steps { list-style: none; padding: 0; margin: 0; }
+  .steps li {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .steps li:last-child { border-bottom: none; }
+  .step-num {
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(124,156,255,0.15);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* FAQ */
+  .faq-section { margin-top: 32px; }
+  .faq-section h2 { font-size: 22px; margin-bottom: 16px; }
+  .faq-item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-q:hover { color: var(--accent); }
+  .faq-icon { font-size: 18px; transition: transform 0.3s; flex-shrink: 0; }
+  .faq-a {
+    display: none;
+    padding: 0 20px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+    color: var(--muted);
+    padding-bottom: 20px;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
 </style>
 </head>
 <body>
 <div class="container">
-  <section class="hero">
+
+  <!-- Hero -->
+  <div class="hero">
     <h1>Freelance Day Rate Calculator Pakistan</h1>
     <p>Calculate your hourly, daily, weekly, and monthly freelance rate in PKR. Add expenses and tax to get a realistic rate that helps you charge confidently.</p>
     <div class="badges">
@@ -45,105 +281,194 @@ button{width:100%;margin-top:16px;padding:14px 16px;border:0;border-radius:14px;
       <span class="badge">Hourly to Day Rate</span>
       <span class="badge">Tax & Expenses</span>
       <span class="badge">Mobile friendly</span>
-      <a href="project-budget-calculator.html" class="badge" style="text-decoration:none;">🧮 Project Budget Calculator</a>
+      <a href="project-budget-calculator.html" class="badge">🧮 Project Budget Calculator</a>
     </div>
-  </section>
+  </div>
 
+  <!-- Main Grid -->
   <div class="grid">
+
+    <!-- Calculator -->
     <section class="card">
       <h2>Calculate your rate</h2>
 
       <label>Monthly income goal (PKR)</label>
-      <input id="income" type="number" value="150000" min="0">
+      <input id="income" type="number" value="150000" min="0" />
 
       <div class="row">
         <div>
           <label>Working days per month</label>
-          <input id="days" type="number" value="22" min="1">
+          <input id="days" type="number" value="22" min="1" />
         </div>
         <div>
           <label>Billable hours per day</label>
-          <input id="hours" type="number" value="6" min="1">
+          <input id="hours" type="number" value="6" min="1" />
         </div>
       </div>
 
       <div class="row">
         <div>
           <label>Monthly expenses (PKR)</label>
-          <input id="expenses" type="number" value="20000" min="0">
+          <input id="expenses" type="number" value="20000" min="0" />
         </div>
         <div>
           <label>Tax / buffer (%)</label>
-          <input id="tax" type="number" value="10" min="0">
+          <input id="tax" type="number" value="10" min="0" max="100" />
         </div>
       </div>
 
-      <button onclick="calc()">Calculate rate</button>
+      <button class="btn" onclick="calc()">Calculate rate</button>
 
       <div class="results">
-        <div class="result"><div class="small">Hourly rate</div><div class="big" id="hourly">PKR 0</div></div>
-        <div class="result"><div class="small">Daily rate</div><div class="big" id="daily">PKR 0</div></div>
-        <div class="result"><div class="small">Weekly rate</div><div class="big" id="weekly">PKR 0</div></div>
-        <div class="result"><div class="small">Monthly target</div><div class="big" id="monthly">PKR 0</div></div>
+        <div class="result">
+          <div class="small">Hourly rate</div>
+          <div class="big" id="hourly">PKR 0</div>
+        </div>
+        <div class="result">
+          <div class="small">Daily rate</div>
+          <div class="big" id="daily">PKR 0</div>
+        </div>
+        <div class="result">
+          <div class="small">Weekly rate</div>
+          <div class="big" id="weekly">PKR 0</div>
+        </div>
+        <div class="result highlight">
+          <div class="small">Monthly target</div>
+          <div class="big" id="monthly">PKR 0</div>
+        </div>
       </div>
     </section>
 
+    <!-- How it works -->
     <aside class="card">
       <h2>How it works</h2>
-      <ul class="list">
-        <li>Starts with your monthly income goal.</li>
-        <li>Adds expenses and tax buffer.</li>
-        <li>Splits the total into working days and billable hours.</li>
-        <li>Shows hourly, daily, weekly, and monthly rates.</li>
-      </ul>
-
-      <h2 style="margin-top:18px">FAQ</h2>
-      <ul class="list">
-        <li>What should I charge as a freelancer in Pakistan?</li>
-        <li>How do I convert hourly rate to day rate?</li>
-        <li>Should I include tax and business expenses?</li>
-        <li>How many billable hours should I assume?</li>
+      <ul class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <span>Enter your monthly income goal — what you want to take home in PKR.</span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span>Set your working days per month and billable hours per day.</span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span>Add your monthly expenses like internet, software, or office costs.</span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span>Include a tax or buffer percentage to protect against unexpected costs.</span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <span>Get your hourly, daily, weekly, and monthly rates — ready to use with clients.</span>
+        </li>
       </ul>
     </aside>
+
   </div>
 
-  <div class="footer">Tip: Add FAQ schema, internal links, and examples for better SEO.</div>
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What should I charge as a freelancer in Pakistan?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Your rate depends on your income goal, expenses, and working hours. A common starting point for Pakistani freelancers is PKR 1,500–3,000 per hour for development work, and PKR 800–1,500 for design or writing. Use this calculator to find your personal rate based on your actual costs — not someone else's guess.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I convert my hourly rate to a day rate in PKR?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Multiply your hourly rate by your billable hours per day. For example, if you charge PKR 2,000/hour and work 6 billable hours, your day rate is PKR 12,000. This calculator does this automatically based on your inputs.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Should I include tax and business expenses in my freelance rate?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Yes — always. Many Pakistani freelancers undercharge because they forget to include expenses like internet, software subscriptions, and a tax buffer. If you earn PKR 150,000 but spend PKR 20,000 on expenses and owe 10% in tax, your actual take-home is much less. This calculator adds all of that into your rate automatically.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How many billable hours should a freelancer assume per day?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Most freelancers can realistically bill 4–6 hours per day. The rest of the time goes to emails, admin, finding new clients, and breaks. Using 6 hours is a reasonable default. If you are newer to freelancing, use 4–5 hours to be safe.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How is the monthly target different from my income goal?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Your income goal is what you want to take home. Your monthly target is what you need to earn (and invoice) to reach that goal after covering expenses and tax. For example, if your income goal is PKR 150,000, your monthly target might be PKR 187,000 after adding expenses and a 10% tax buffer.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I price a fixed-price freelance project in Pakistan?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Use your day rate from this calculator, estimate how many days the project will take, and multiply. Then add a profit margin. For a more complete project quote, use the <a href="project-budget-calculator.html">Project Budget Calculator</a> which includes tools cost, profit margin, and tax buffer.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Also try the <a href="project-budget-calculator.html">Project Budget Calculator</a> to price fixed-scope projects in PKR.
+  </div>
+
 </div>
 
 <script>
-function fmt(v){ return 'PKR ' + Math.round(v).toLocaleString('en-PK'); }
+function fmt(v) { return 'PKR ' + Math.round(v).toLocaleString('en-PK'); }
 
-function calc(){
-  const income = +incomeEl.value || 0;
-  const days = +daysEl.value || 1;
-  const hours = +hoursEl.value || 1;
-  const expenses = +expensesEl.value || 0;
-  const tax = +taxEl.value || 0;
+function calc() {
+  const income   = +document.getElementById('income').value || 0;
+  const days     = +document.getElementById('days').value || 1;
+  const hours    = +document.getElementById('hours').value || 1;
+  const expenses = +document.getElementById('expenses').value || 0;
+  const tax      = +document.getElementById('tax').value || 0;
 
-  const monthly = (income + expenses) * (1 + tax/100);
-  const daily = monthly / days;
-  const hourly = daily / hours;
-  const weekly = daily * 5;
+  const monthly = (income + expenses) * (1 + tax / 100);
+  const daily   = monthly / days;
+  const hourly  = daily / hours;
+  const weekly  = daily * 5;
 
-  hourlyEl.textContent = fmt(hourly);
-  dailyEl.textContent = fmt(daily);
-  weeklyEl.textContent = fmt(weekly);
-  monthlyEl.textContent = fmt(monthly);
+  document.getElementById('hourly').textContent  = fmt(hourly);
+  document.getElementById('daily').textContent   = fmt(daily);
+  document.getElementById('weekly').textContent  = fmt(weekly);
+  document.getElementById('monthly').textContent = fmt(monthly);
 }
 
-const incomeEl = document.getElementById('income');
-const daysEl = document.getElementById('days');
-const hoursEl = document.getElementById('hours');
-const expensesEl = document.getElementById('expenses');
-const taxEl = document.getElementById('tax');
-
-const hourlyEl = document.getElementById('hourly');
-const dailyEl = document.getElementById('daily');
-const weeklyEl = document.getElementById('weekly');
-const monthlyEl = document.getElementById('monthly');
-
-[incomeEl, daysEl, hoursEl, expensesEl, taxEl].forEach(el => el.addEventListener('input', calc));
+['income','days','hours','expenses','tax'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calc);
+});
 calc();
+
+function toggleFaq(btn) {
+  btn.closest('.faq-item').classList.toggle('open');
+}
 </script>
 </body>
 </html>
