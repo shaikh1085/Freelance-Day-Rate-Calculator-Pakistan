@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Freelance Day Rate Calculator Pakistan</title>
+<meta name="description" content="Free freelance day rate calculator for Pakistan. Calculate hourly, daily, weekly, and monthly rates in PKR with taxes and expenses." />
+<style>
+:root{--bg:#0b1020;--card:#121a33;--text:#eef2ff;--muted:#a9b4d0;--accent:#7c9cff;--accent2:#35d0ba;--border:#243055}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#08101f,#0d1530);color:var(--text)}
+.container{max-width:1060px;margin:0 auto;padding:24px}
+.hero{padding:28px 0 14px}
+h1{font-size:clamp(30px,5vw,52px);line-height:1.05;margin:0 0 10px}
+p{color:var(--muted);line-height:1.6}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:rgba(18,26,51,.92);border:1px solid var(--border);border-radius:22px;padding:20px;box-shadow:0 12px 30px rgba(0,0,0,.24)}
+label{display:block;font-size:14px;margin:14px 0 8px;color:#d6def7}
+input{width:100%;padding:14px;border-radius:14px;border:1px solid #33426e;background:#0b1228;color:var(--text);outline:none}
+input:focus{border-color:var(--accent)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+button{width:100%;margin-top:16px;padding:14px 16px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04111f;font-weight:800;font-size:16px;cursor:pointer}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:560px){.results{grid-template-columns:1fr}}
+.result{background:#0b1228;border:1px solid var(--border);border-radius:18px;padding:14px}
+.big{font-size:30px;font-weight:800;color:#fff}
+.small{font-size:13px;color:var(--muted)}
+.list{margin:10px 0 0;padding:0;list-style:none}
+.list li{padding:9px 0;border-bottom:1px solid #223055;color:#dfe6ff}
+.list li:last-child{border-bottom:0}
+.footer{padding:22px 0 8px;color:var(--muted);font-size:13px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.badge{padding:8px 12px;border-radius:999px;background:#0b1228;border:1px solid var(--border);color:#dfe6ff;font-size:13px}
+</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Freelance Day Rate Calculator Pakistan</h1>
+    <p>Calculate your hourly, daily, weekly, and monthly freelance rate in PKR. Add expenses and tax to get a realistic rate that helps you charge confidently.</p>
+    <div class="badges">
+      <span class="badge">PKR calculator</span>
+      <span class="badge">Hourly to Day Rate</span>
+      <span class="badge">Tax & Expenses</span>
+      <span class="badge">Mobile friendly</span>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Calculate your rate</h2>
+
+      <label>Monthly income goal (PKR)</label>
+      <input id="income" type="number" value="150000" min="0">
+
+      <div class="row">
+        <div>
+          <label>Working days per month</label>
+          <input id="days" type="number" value="22" min="1">
+        </div>
+        <div>
+          <label>Billable hours per day</label>
+          <input id="hours" type="number" value="6" min="1">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Monthly expenses (PKR)</label>
+          <input id="expenses" type="number" value="20000" min="0">
+        </div>
+        <div>
+          <label>Tax / buffer (%)</label>
+          <input id="tax" type="number" value="10" min="0">
+        </div>
+      </div>
+
+      <button onclick="calc()">Calculate rate</button>
+
+      <div class="results">
+        <div class="result"><div class="small">Hourly rate</div><div class="big" id="hourly">PKR 0</div></div>
+        <div class="result"><div class="small">Daily rate</div><div class="big" id="daily">PKR 0</div></div>
+        <div class="result"><div class="small">Weekly rate</div><div class="big" id="weekly">PKR 0</div></div>
+        <div class="result"><div class="small">Monthly target</div><div class="big" id="monthly">PKR 0</div></div>
+      </div>
+    </section>
+
+    <aside class="card">
+      <h2>How it works</h2>
+      <ul class="list">
+        <li>Starts with your monthly income goal.</li>
+        <li>Adds expenses and tax buffer.</li>
+        <li>Splits the total into working days and billable hours.</li>
+        <li>Shows hourly, daily, weekly, and monthly rates.</li>
+      </ul>
+
+      <h2 style="margin-top:18px">FAQ</h2>
+      <ul class="list">
+        <li>What should I charge as a freelancer in Pakistan?</li>
+        <li>How do I convert hourly rate to day rate?</li>
+        <li>Should I include tax and business expenses?</li>
+        <li>How many billable hours should I assume?</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="footer">Tip: Add FAQ schema, internal links, and examples for better SEO.</div>
+</div>
+
+<script>
+function fmt(v){ return 'PKR ' + Math.round(v).toLocaleString('en-PK'); }
+
+function calc(){
+  const income = +incomeEl.value || 0;
+  const days = +daysEl.value || 1;
+  const hours = +hoursEl.value || 1;
+  const expenses = +expensesEl.value || 0;
+  const tax = +taxEl.value || 0;
+
+  const monthly = (income + expenses) * (1 + tax/100);
+  const daily = monthly / days;
+  const hourly = daily / hours;
+  const weekly = daily * 5;
+
+  hourlyEl.textContent = fmt(hourly);
+  dailyEl.textContent = fmt(daily);
+  weeklyEl.textContent = fmt(weekly);
+  monthlyEl.textContent = fmt(monthly);
+}
+
+const incomeEl = document.getElementById('income');
+const daysEl = document.getElementById('days');
+const hoursEl = document.getElementById('hours');
+const expensesEl = document.getElementById('expenses');
+const taxEl = document.getElementById('tax');
+
+const hourlyEl = document.getElementById('hourly');
+const dailyEl = document.getElementById('daily');
+const weeklyEl = document.getElementById('weekly');
+const monthlyEl = document.getElementById('monthly');
+
+[incomeEl, daysEl, hoursEl, expensesEl, taxEl].forEach(el => el.addEventListener('input', calc));
+calc();
+</script>
+</body>
+</html>
