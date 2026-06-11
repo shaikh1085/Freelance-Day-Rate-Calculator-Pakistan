@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Project Budget Calculator | Pakistan Freelance Tool</title>
+<style>
+:root{--bg:#07111f; --panel:rgba(15, 26, 48, 0.7); --text:#eef3ff; --accent:#7c9cff; --accent2:#35d0ba; --border:#233255;}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background-color:var(--bg);color:var(--text);padding:20px}
+.container{max-width:700px;margin:0 auto}
+.card{background:var(--panel);backdrop-filter:blur(15px);border:1px solid var(--border);border-radius:24px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+h1{font-size:32px;margin-bottom:20px;text-align:center}
+label{display:block;font-size:13px;margin:15px 0 6px;color:#a9b6d6}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid var(--border);background:#162444;color:white;outline:none;font-size:16px}
+input:focus{border-color:var(--accent)}
+.result-display{margin-top:30px;padding:20px;border-radius:16px;background:rgba(124,156,255,0.1);text-align:center;border:1px dashed var(--accent)}
+.total-val{font-size:36px;font-weight:800;color:var(--accent2);margin-top:10px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h1>Project Budget Calculator</h1>
+    
+    <label>Development/Service Cost (PKR)</label>
+    <input id="devCost" type="number" value="50000">
+
+    <label>Resources/Tools Cost (PKR)</label>
+    <input id="resCost" type="number" value="5000">
+
+    <label>Profit Margin (%)</label>
+    <input id="profit" type="number" value="20">
+
+    <div class="result-display">
+      <div style="font-size:14px; color:var(--muted)">Recommended Project Budget</div>
+      <div class="total-val" id="total">PKR 0</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function calcBudget(){
+  const dev = +document.getElementById('devCost').value || 0;
+  const res = +document.getElementById('resCost').value || 0;
+  const profit = +document.getElementById('profit').value || 0;
+
+  const subtotal = dev + res;
+  const total = subtotal * (1 + profit/100);
+
+  document.getElementById('total').textContent = 'PKR ' + Math.round(total).toLocaleString();
+}
+document.querySelectorAll('input').forEach(i => i.addEventListener('input', calcBudget));
+calcBudget();
+</script>
+</body>
+</html>
