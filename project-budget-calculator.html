@@ -3,55 +3,474 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Project Budget Calculator | Pakistan Freelance Tool</title>
+
+<!-- SEO Meta Tags -->
+<title>Project Budget Calculator Pakistan | Freelance Project Cost in PKR</title>
+<meta name="description" content="Free project budget calculator for Pakistani freelancers. Calculate your total project cost in PKR including development cost, tools, profit margin and tax buffer. Get the right quote every time." />
+<meta name="keywords" content="project budget calculator Pakistan, freelance project cost PKR, how much to charge for a project Pakistan, freelance quote calculator Pakistan, project cost estimator PKR" />
+<meta name="author" content="Freelance Day Rate Calculator Pakistan" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://shaikh1085.github.io/Freelance-Day-Rate-Calculator-Pakistan/project-budget-calculator.html" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Project Budget Calculator Pakistan | Freelance Project Cost in PKR" />
+<meta property="og:description" content="Calculate your freelance project budget in PKR. Add development cost, tools, profit margin and get the right quote for your client." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://shaikh1085.github.io/Freelance-Day-Rate-Calculator-Pakistan/project-budget-calculator.html" />
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Project Budget Calculator Pakistan",
+  "description": "Free project budget calculator for Pakistani freelancers to calculate project cost in PKR including development, tools, profit margin and tax.",
+  "url": "https://shaikh1085.github.io/Freelance-Day-Rate-Calculator-Pakistan/project-budget-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "PKR"
+  }
+}
+</script>
+
 <style>
-:root{--bg:#07111f; --panel:rgba(15, 26, 48, 0.7); --text:#eef3ff; --accent:#7c9cff; --accent2:#35d0ba; --border:#233255;}
-body{margin:0;font-family:Inter,system-ui,sans-serif;background-color:var(--bg);color:var(--text);padding:20px}
-.container{max-width:700px;margin:0 auto}
-.card{background:var(--panel);backdrop-filter:blur(15px);border:1px solid var(--border);border-radius:24px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-h1{font-size:32px;margin-bottom:20px;text-align:center}
-label{display:block;font-size:13px;margin:15px 0 6px;color:#a9b6d6}
-input{width:100%;padding:14px;border-radius:12px;border:1px solid var(--border);background:#162444;color:white;outline:none;font-size:16px}
-input:focus{border-color:var(--accent)}
-.result-display{margin-top:30px;padding:20px;border-radius:16px;background:rgba(124,156,255,0.1);text-align:center;border:1px dashed var(--accent)}
-.total-val{font-size:36px;font-weight:800;color:var(--accent2);margin-top:10px}
+  :root {
+    --bg: #07111f;
+    --panel: rgba(15, 26, 48, 0.7);
+    --panel2: rgba(15, 26, 48, 0.95);
+    --text: #eef3ff;
+    --muted: #a9b6d6;
+    --accent: #7c9cff;
+    --accent2: #35d0ba;
+    --border: #233255;
+    --danger: #ff6b6b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; }
+
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .back-link:hover { opacity: 1; }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 800;
+    margin: 0 0 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 16px;
+  }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .badge {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #0b1228;
+    border: 1px solid var(--border);
+    color: #dfe6ff;
+    font-size: 12px;
+  }
+
+  /* Grid layout */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  /* Cards */
+  .card {
+    background: var(--panel);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .card h2 {
+    font-size: 18px;
+    margin: 0 0 20px;
+    color: var(--text);
+  }
+
+  /* Inputs */
+  label {
+    display: block;
+    font-size: 12px;
+    margin: 16px 0 6px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #162444;
+    color: white;
+    outline: none;
+    font-size: 15px;
+    transition: border-color 0.2s;
+  }
+  input[type="number"]:focus { border-color: var(--accent); }
+
+  /* Calculate button */
+  .btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 15px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #07111f;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+
+  /* Results */
+  .results { margin-top: 20px; }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .result-row:last-child { border-bottom: none; }
+  .result-row .label { color: var(--muted); }
+  .result-row .val { font-weight: 600; color: var(--text); }
+
+  .result-display {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(53, 208, 186, 0.08);
+    text-align: center;
+    border: 1px dashed var(--accent2);
+  }
+  .result-display .label-sm { font-size: 13px; color: var(--muted); }
+  .total-val {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 800;
+    color: var(--accent2);
+    margin-top: 6px;
+  }
+
+  /* How it works */
+  .steps { list-style: none; padding: 0; margin: 0; }
+  .steps li {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .steps li:last-child { border-bottom: none; }
+  .step-num {
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(124, 156, 255, 0.15);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* FAQ */
+  .faq-section { margin-top: 32px; }
+  .faq-section h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .faq-item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-q:hover { color: var(--accent); }
+  .faq-icon { font-size: 18px; transition: transform 0.3s; flex-shrink: 0; }
+  .faq-a {
+    display: none;
+    padding: 0 20px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+    color: var(--muted);
+    padding-bottom: 20px;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="card">
+
+  <a href="index.html" class="back-link">← Freelancer Day Rate Calculator</a>
+
+  <!-- Hero -->
+  <div class="hero">
     <h1>Project Budget Calculator</h1>
-    <a href="index.html" class="back-link" style="text-decoration:none;font-size:13px;color:#7c9cff;">← Back to Freelancer Day Rate Calculator</a>
-    
-    <label>Development/Service Cost (PKR)</label>
-    <input id="devCost" type="number" value="50000">
-
-    <label>Resources/Tools Cost (PKR)</label>
-    <input id="resCost" type="number" value="5000">
-
-    <label>Profit Margin (%)</label>
-    <input id="profit" type="number" value="20">
-
-    <div class="result-display">
-      <div style="font-size:14px; color:var(--muted)">Recommended Project Budget</div>
-      <div class="total-val" id="total">PKR 0</div>
+    <p>Calculate the right price for your freelance project in PKR. Add costs, set your profit margin, and quote with confidence.</p>
+    <div class="badges">
+      <span class="badge">PKR calculator</span>
+      <span class="badge">Profit margin</span>
+      <span class="badge">Tax buffer</span>
+      <span class="badge">Client quote ready</span>
+      <span class="badge">Mobile friendly</span>
     </div>
   </div>
+
+  <!-- Main Grid -->
+  <div class="grid">
+
+    <!-- Calculator Card -->
+    <section class="card">
+      <h2>Calculate your budget</h2>
+
+      <label>Development / Service Cost (PKR)</label>
+      <input id="devCost" type="number" value="50000" min="0" />
+
+      <label>Resources / Tools Cost (PKR)</label>
+      <input id="resCost" type="number" value="5000" min="0" />
+
+      <label>Tax / Buffer (%)</label>
+      <input id="tax" type="number" value="10" min="0" max="100" />
+
+      <label>Profit Margin (%)</label>
+      <input id="profit" type="number" value="20" min="0" max="100" />
+
+      <button class="btn" onclick="calcBudget()">Calculate budget</button>
+
+      <!-- Breakdown -->
+      <div class="results">
+        <div class="result-row">
+          <span class="label">Subtotal (costs)</span>
+          <span class="val" id="subtotal">PKR 0</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Tax / Buffer</span>
+          <span class="val" id="taxAmt">PKR 0</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Profit</span>
+          <span class="val" id="profitAmt">PKR 0</span>
+        </div>
+      </div>
+
+      <div class="result-display">
+        <div class="label-sm">Recommended Project Budget</div>
+        <div class="total-val" id="total">PKR 0</div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <aside class="card">
+      <h2>How it works</h2>
+      <ul class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <span>Enter your total development or service cost for the project.</span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span>Add any resources, tools, or software costs you'll need.</span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span>Set a tax or buffer percentage to protect against unexpected costs.</span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span>Add your profit margin to ensure you're running a sustainable business.</span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <span>Get your recommended project budget in PKR — ready to share with your client.</span>
+        </li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I calculate a project budget as a freelancer in Pakistan?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Add up your development cost and any tools or resources you need. Then apply a tax or buffer percentage (usually 10–15%) to cover unexpected expenses. Finally, add your desired profit margin (20–30% is common in Pakistan). The total is your recommended project price in PKR.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What profit margin should Pakistani freelancers charge?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Most Pakistani freelancers charge a profit margin of 15–30% on top of their costs. Beginners may start at 15%, while experienced freelancers on platforms like Upwork and Fiverr often charge 25–35% or more depending on the project complexity and client location.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Should I include tax in my freelance project quote in Pakistan?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Yes. Even if you are not registered for tax yet, including a 10–15% buffer in your quote protects you against unexpected costs, currency fluctuations, and future tax obligations. It also gives you room to negotiate without losing money.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How much should I charge for a web development project in Pakistan?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        A basic website in Pakistan typically costs PKR 30,000–80,000. A custom web application can range from PKR 80,000 to PKR 300,000+. Use this calculator to set a price based on your actual costs plus profit — rather than guessing or matching a competitor's rate.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is the difference between project budget and day rate?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        A day rate is what you charge per working day — useful for long-term clients or ongoing work. A project budget is a fixed price for a complete deliverable. Use the <a href="index.html">Freelancer Day Rate Calculator</a> to find your day rate, then use this tool to price fixed-scope projects.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What costs should I include in a freelance project budget?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Include: your development or service time (valued at your day/hour rate), any software licenses or subscriptions, hosting or domain costs, stock assets or fonts, revision time, and a buffer for communication overhead. Missing even one of these is a common reason freelancers undercharge in Pakistan.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Also try the <a href="index.html">Freelancer Day Rate Calculator</a> to find your hourly and daily rate in PKR.
+  </div>
+
 </div>
 
 <script>
-function calcBudget(){
-  const dev = +document.getElementById('devCost').value || 0;
-  const res = +document.getElementById('resCost').value || 0;
-  const profit = +document.getElementById('profit').value || 0;
+function calcBudget() {
+  const dev    = +document.getElementById('devCost').value || 0;
+  const res    = +document.getElementById('resCost').value || 0;
+  const taxPct = +document.getElementById('tax').value || 0;
+  const profPct = +document.getElementById('profit').value || 0;
 
   const subtotal = dev + res;
-  const total = subtotal * (1 + profit/100);
+  const taxAmt   = subtotal * (taxPct / 100);
+  const profitAmt = (subtotal + taxAmt) * (profPct / 100);
+  const total    = subtotal + taxAmt + profitAmt;
 
-  document.getElementById('total').textContent = 'PKR ' + Math.round(total).toLocaleString();
+  const fmt = n => 'PKR ' + Math.round(n).toLocaleString();
+  document.getElementById('subtotal').textContent  = fmt(subtotal);
+  document.getElementById('taxAmt').textContent    = fmt(taxAmt);
+  document.getElementById('profitAmt').textContent = fmt(profitAmt);
+  document.getElementById('total').textContent     = fmt(total);
 }
+
 document.querySelectorAll('input').forEach(i => i.addEventListener('input', calcBudget));
 calcBudget();
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
 </script>
 </body>
 </html>
