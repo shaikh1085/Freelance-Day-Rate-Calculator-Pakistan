@@ -1,7 +1,4 @@
 User-agent: *
-Allow: /$
-Allow: /project-budget-calculator.html
-Disallow: /index.html
-Disallow: /*?*
+Allow: /
 
 Sitemap: https://dayratepk.vercel.app/sitemap.xml
